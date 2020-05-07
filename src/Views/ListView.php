@@ -21,15 +21,15 @@ class ListView {
   /**
    * Fetches Posts.
    */
-  protected function fetchPosts() {
-    return Posts::getPosts();
+  protected function fetchPosts(int $maxPosts = 0) {
+    return Posts::getPosts($maxPosts);
   }
 
   /**
    * Renders the view.
    */
-  public function render() {
-    $posts = $this->fetchPosts();
+  public function render(int $maxPosts = 0) {
+    $posts = $this->fetchPosts($maxPosts);
 
     $this->variables['view'] = [
       '#theme' => 'neg_instagram_widget_list_view',

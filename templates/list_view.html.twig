@@ -1,3 +1,4 @@
+{% if posts|length > 0 %}
 <div class="ig_posts">
 {% for post in posts %}
   <div class="post">
@@ -12,4 +13,5 @@
     </a>
   </div>
 {% endfor %}
-</divul>
+</div>
+{% endif %}

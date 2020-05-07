@@ -10,13 +10,17 @@ class Posts {
   /**
    * Gets IG Posts.
    */
-  public static function getPosts() {
+  public static function getPosts(int $maxPosts = 0) {
     $config = Settings::config();
     $data = $config->get('posts');
 
     $posts = [];
-    foreach ($data as $r) {
+    foreach ($data as $i => $r) {
       $posts[] = new Post($r);
+
+      if ($maxPosts > 0 && $i >= $maxPosts) {
+        break;
+      }
     }
 
     return $posts;

@@ -45,7 +45,7 @@ function _neg_google_reviews_process_paragraph_instagram_posts_widget(&$variable
   $variables['attributes']['class'][] = 'paragraph-instagram-posts';
 
   $view = new ListView($variables);
-  $view->render();
+  $view->render(50);
 }
 
 /**
