@@ -1,0 +1,5 @@
+neg_instagram_widget.settings:
+  title: 'Instagram Widget Settings'
+  parent: system.admin_config_services
+  description: 'Configure Instagram Widget Settings'
+  route_name: neg_instagram_widget.settings

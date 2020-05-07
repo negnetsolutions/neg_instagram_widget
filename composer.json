@@ -1,0 +1,10 @@
+{
+  "name": "negnet/neg_instagram_widget",
+  "description": "Instagram Basic Display Widget",
+  "type": "drupal-module",
+  "license": "GPL-3.0+",
+  "require": {
+    "espresso-dev/instagram-basic-display-php": "^1.1",
+    "negnet/neg_paragraphs": "master"
+  }
+}

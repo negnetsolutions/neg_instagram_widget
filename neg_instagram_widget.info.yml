@@ -1,0 +1,6 @@
+name: Negnet Solutions Instagram Widget
+type: module
+description: "Creates an instagram feed paragraph widget"
+core: 8.x
+dependencies:
+  - neg_paragraphs

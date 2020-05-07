@@ -1,0 +1,13 @@
+neg_instagram_widget.settings:
+  path: '/admin/config/services/instagram_widget'
+  defaults:
+    _form: '\Drupal\neg_instagram_widget\Form\SettingsForm'
+    _title: 'Instagram Widget Settings'
+  requirements:
+    _permission: 'administer site configuration'
+neg_instagram_widget.auth:
+  path: '/instagram/auth'
+  defaults:
+    _controller: '\Drupal\neg_instagram_widget\Controller\InstagramController::auth'
+  requirements:
+    _permission: 'access content'
