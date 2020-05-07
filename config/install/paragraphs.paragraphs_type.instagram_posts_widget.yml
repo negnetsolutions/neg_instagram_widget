@@ -1,0 +1,10 @@
+uuid: 1ae04be0-a8a5-48ae-be30-f40113060726
+langcode: en
+status: true
+dependencies: {  }
+id: instagram_posts_widget
+label: 'Instagram Posts Widget'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
