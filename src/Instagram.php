@@ -23,8 +23,6 @@ class Instagram {
 
       $redirectUri = Url::fromRoute('neg_instagram_widget.auth', ['absolute' => TRUE])->setAbsolute()->toString();
 
-      // TODO.
-      // $redirectUri = 'https://b322428e.ngrok.io/instagram/auth';
       self::$client = new InstagramBasicDisplay([
         'appId' => self::APP_ID,
         'appSecret' => self::APP_SECRET,
