@@ -1,15 +1,15 @@
-<ul class="ig_posts">
+<div class="ig_posts">
 {% for post in posts %}
-  <li class="post">
+  <div class="post">
     <a href="{{ post.get('permalink') }}" target="_blank">
       <div class="caption">
         {{ post.get('caption') }}
       </div>
 
       <div class="image">
-        <img class="responsive-image lazyload" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ post.get('media_url') }}" alt="{{ post.get('caption')}} " />
+        <img width="1080" height="1080" class="responsive-image lazyload" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ post.get('media_url') }}" alt="{{ post.get('caption')}} " />
       </div>
     </a>
-  </li>
+  </div>
 {% endfor %}
-</ul>
+</divul>
