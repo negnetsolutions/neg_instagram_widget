@@ -31,8 +31,6 @@ class ListView {
   public function render() {
     $posts = $this->fetchPosts();
 
-    \kint($posts);
-
     $this->variables['view'] = [
       '#theme' => 'neg_instagram_widget_list_view',
       '#posts' => $posts,
