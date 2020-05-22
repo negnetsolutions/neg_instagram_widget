@@ -51,7 +51,7 @@ class SettingsForm extends ConfigFormBase {
         ];
       }
       catch (\Exception $e) {
-        drupal_set_message('Instagram Error: ' . $e->getMessage(), 'error');
+        \Drupal::messenger()->addError('Instagram Error: ' . $e->getMessage(), TRUE);
       }
 
       $form['frequency'] = [
@@ -101,7 +101,7 @@ class SettingsForm extends ConfigFormBase {
     $config->clear('token_valid_ttl');
     $config->save();
 
-    drupal_set_message('Disconnected successfully from Instagram.');
+    \Drupal::messenger()->addStatus('Disconnected successfully from Instagram.');
   }
 
   /**
@@ -114,11 +114,11 @@ class SettingsForm extends ConfigFormBase {
       $sync->sync();
     }
     catch (\Exception $e) {
-      drupal_set_message($e->getMessage());
+      \Drupal::messenger()->addError($e->getMessage(), TRUE);
       return;
     }
 
-    drupal_set_message('Successfully Synced with Instagram!');
+    \Drupal::messenger()->addStatus('Successfully Synced with Instagram!');
   }
 
   /**
