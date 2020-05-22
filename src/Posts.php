@@ -16,6 +16,12 @@ class Posts {
 
     $posts = [];
     foreach ($data as $i => $r) {
+
+      if (isset($r['thumbnail_url'])) {
+        $r['media_url'] = $r['thumbnail_url'];
+        unset($r['thumbnail_url']);
+      }
+
       $posts[] = new Post($r);
 
       if ($maxPosts > 0 && $i >= $maxPosts) {
