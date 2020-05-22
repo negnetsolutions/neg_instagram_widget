@@ -21,7 +21,7 @@ class Instagram {
   public static function client() {
     if (self::$client === FALSE) {
 
-      $redirectUri = Url::fromRoute('neg_instagram_widget.auth', ['absolute' => TRUE])->setAbsolute()->toString();
+      $redirectUri = Url::fromRoute('neg_instagram_widget.auth')->setAbsolute()->toString();
 
       self::$client = new InstagramBasicDisplay([
         'appId' => self::APP_ID,

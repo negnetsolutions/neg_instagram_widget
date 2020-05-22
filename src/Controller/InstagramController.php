@@ -53,7 +53,7 @@ class InstagramController extends ControllerBase {
     // Save first access token.
     Instagram::setAccessToken($token, TRUE);
 
-    $path = Url::fromRoute('neg_instagram_widget.settings', ['absolute' => TRUE])->setAbsolute()->toString();
+    $path = Url::fromRoute('neg_instagram_widget.settings')->setAbsolute()->toString();
     $response = new RedirectResponse($path);
     return $response;
   }
