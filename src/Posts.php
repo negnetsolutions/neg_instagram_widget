@@ -22,6 +22,8 @@ class Posts {
         unset($r['thumbnail_url']);
       }
 
+      $r['summary'] = self::summarize($r['caption'], 15);
+
       $posts[] = new Post($r);
 
       if ($maxPosts > 0 && $i >= $maxPosts) {
@@ -30,6 +32,18 @@ class Posts {
     }
 
     return $posts;
+  }
+
+  /**
+   * Summarizes string.
+   */
+  public static function summarize($text, $limit) {
+    if (str_word_count($text, 0) > $limit) {
+      $words = str_word_count($text, 2);
+      $pos = array_keys($words);
+      $text = substr($text, 0, $pos[$limit]) . '...';
+    }
+    return $text;
   }
 
 }
