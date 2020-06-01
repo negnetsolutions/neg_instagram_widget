@@ -11,8 +11,7 @@ class Posts {
    * Gets IG Posts.
    */
   public static function getPosts(int $maxPosts = 0) {
-    $config = Settings::config();
-    $data = $config->get('posts');
+    $data = \Drupal::state()->get('neg_instagram.posts', NULL);
 
     $posts = [];
     foreach ($data as $i => $r) {

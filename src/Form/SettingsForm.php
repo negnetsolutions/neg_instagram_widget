@@ -110,6 +110,11 @@ class SettingsForm extends ConfigFormBase {
   public function forceSync(array &$form, FormStateInterface $form_state) {
     $sync = new Sync();
 
+    // Retrieve the configuration.
+    $config = Settings::editableConfig();
+    $config->clear('posts');
+    $config->save();
+
     try {
       $sync->sync();
     }

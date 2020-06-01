@@ -25,12 +25,12 @@ class Sync {
 
     $items = Instagram::getMedia();
 
+    // Set reviews.
+    \Drupal::state()->set('neg_instagram.posts', $items);
+
     Settings::log('Fetched %c posts from Instagram', [
       '%c' => count($items),
     ], 'notice');
-
-    // Set reviews.
-    $config->set('posts', $items);
 
     // Set last_full_sync.
     $config->set('last_sync', time());
