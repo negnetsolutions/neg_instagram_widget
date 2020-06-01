@@ -71,7 +71,7 @@ class SettingsForm extends ConfigFormBase {
       ];
 
       $form['last_sync'] = [
-        '#markup' => '<p>Last Sync: ' . date('r', $config->get('last_sync')) . '</p>',
+        '#markup' => '<p>Last Sync: ' . date('r', \Drupal::state()->get('neg_instagram.last_sync', 0)) . '</p>',
       ];
 
       $form['force_sync'] = [
@@ -113,6 +113,7 @@ class SettingsForm extends ConfigFormBase {
     // Retrieve the configuration.
     $config = Settings::editableConfig();
     $config->clear('posts');
+    $config->clear('last_sync');
     $config->save();
 
     try {

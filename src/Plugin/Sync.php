@@ -33,7 +33,7 @@ class Sync {
     ], 'notice');
 
     // Set last_full_sync.
-    $config->set('last_sync', time());
+    \Drupal::state()->set('neg_instagram.last_sync', time());
 
     $config->save();
 
