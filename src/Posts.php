@@ -8,6 +8,14 @@ namespace Drupal\neg_instagram_widget;
 class Posts {
 
   /**
+   * Fetches synced post count.
+   */
+  public static function postCount() {
+    $posts = self::getPosts();
+    return count($posts);
+  }
+
+  /**
    * Gets IG Posts.
    */
   public static function getPosts(int $maxPosts = 0) {

@@ -6,6 +6,7 @@ use Drupal\neg_instagram_widget\Settings;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\neg_instagram_widget\Instagram;
+use Drupal\neg_instagram_widget\Posts;
 use Drupal\neg_instagram_widget\Plugin\Sync;
 
 /**
@@ -44,7 +45,7 @@ class SettingsForm extends ConfigFormBase {
 
       try {
         $profile_details = Instagram::getUserProfile();
-        $postsCount = count($config->get('posts'));
+        $postsCount = Posts::postCount();
 
         $form['details'] = [
           '#markup' => '<p>Currently Syncing with Instagram Username: <strong>' . $profile_details->username . '</strong><br />' . ucwords($profile_details->username) . ' has ' . $profile_details->media_count . ' IG posts. <strong>' . $postsCount . '</strong> posts have been synced.</p>',
@@ -110,11 +111,7 @@ class SettingsForm extends ConfigFormBase {
   public function forceSync(array &$form, FormStateInterface $form_state) {
     $sync = new Sync();
 
-    // Retrieve the configuration.
-    $config = Settings::editableConfig();
-    $config->clear('posts');
-    $config->clear('last_sync');
-    $config->save();
+    \Drupal::state()->set('neg_instagram.last_sync', 0);
 
     try {
       $sync->sync();
