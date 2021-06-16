@@ -29,6 +29,10 @@ class Posts {
         unset($r['thumbnail_url']);
       }
 
+      if (!isset($r['caption'])) {
+        $r['caption'] = '';
+      }
+
       $r['summary'] = self::summarize($r['caption'], 15);
 
       $posts[] = new Post($r);
