@@ -43,6 +43,7 @@ function neg_instagram_widget_preprocess_paragraph(&$variables) {
 function _neg_instagram_widget_process_paragraph_instagram_posts_widget(&$variables) {
   $variables['attributes']['class'][] = 'paragraph';
   $variables['attributes']['class'][] = 'paragraph-instagram-posts';
+  $variables['attributes']['aria-hidden'] = 'true';
 
   $view = new ListView($variables);
   $view->render(50);
