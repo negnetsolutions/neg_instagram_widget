@@ -2,13 +2,13 @@
 <div class="ig_posts">
 {% for post in posts %}
   <div class="post">
-    <a rel="noopener" aria-hidden="true" href="{{ post.get('permalink') }}" target="_blank">
+    <a rel="noopener" href="{{ post.get('permalink') }}" target="_blank">
       <div class="caption">
         {{ post.get('caption') }}
       </div>
 
       <div class="image">
-        <img width="1080" height="1080" loading="lazy" decoding="async" class="responsive-image lazyload" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ post.get('media_url') }}" alt="{{ post.get('summary')}} " />
+        <img width="1080" height="1080" loading="lazy" decoding="async" class="responsive-image lazyload" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ post.get('media_url') }}" alt="{{ (post.get('summary')|replace(' ', '')|length > 0) ? post.get('summary') : 'Untitled Post' }}" />
       </div>
     </a>
   </div>
