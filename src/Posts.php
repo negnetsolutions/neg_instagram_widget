@@ -22,6 +22,11 @@ class Posts {
     $data = \Drupal::state()->get('neg_instagram.posts', NULL);
 
     $posts = [];
+
+    if (!is_array($data)) {
+      return $posts;
+    }
+
     foreach ($data as $i => $r) {
 
       if (isset($r['thumbnail_url'])) {
