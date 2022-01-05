@@ -8,7 +8,7 @@
       </div>
 
       <div class="image">
-        <img width="1080" height="1080" loading="lazy" decoding="async" class="responsive-image lazyload" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ post.get('media_url') }}" alt="{{ (post.get('summary')|replace(' ', '')|length > 0) ? post.get('summary') : 'Untitled Post' }}" />
+        <img width="1080" height="1080" loading="lazy" decoding="async" class="responsive-image lazyload" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ post.get('media_url') }}" alt="{{ post.getSummary }}" />
       </div>
     </a>
   </div>

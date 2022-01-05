@@ -17,6 +17,20 @@ class Post {
   }
 
   /**
+   * {@inheritdoc}
+   */
+  public function getSummary() {
+    $summary = $this->get('summary');
+    $bl = str_replace(' ', '', $summary);
+
+    if (strlen($bl) === 0) {
+      return 'Untitled Post';
+    }
+
+    return $summary;
+  }
+
+  /**
    * Getter.
    */
   public function get($property) {
