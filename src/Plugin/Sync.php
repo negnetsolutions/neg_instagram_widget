@@ -21,24 +21,28 @@ class Sync {
    */
   public function sync() {
 
-    $config = Settings::editableConfig();
+    try {
+      $config = Settings::editableConfig();
 
-    $items = Instagram::getMedia();
+      $items = Instagram::getMedia();
 
-    // Set reviews.
-    \Drupal::state()->set('neg_instagram.posts', $items);
+      // Set reviews.
+      \Drupal::state()->set('neg_instagram.posts', $items);
 
-    Settings::log('Fetched %c posts from Instagram', [
-      '%c' => count($items),
-    ], 'notice');
+      Settings::log('Fetched %c posts from Instagram', [
+        '%c' => count($items),
+      ], 'notice');
 
-    // Set last_full_sync.
-    \Drupal::state()->set('neg_instagram.last_sync', time());
+      // Set last_full_sync.
+      \Drupal::state()->set('neg_instagram.last_sync', time());
 
-    $config->save();
+      $config->save();
 
-    // Invalidate Cache Tags.
-    Settings::invalidateCache();
+      // Invalidate Cache Tags.
+      Settings::invalidateCache();
+    }
+    catch (\Throwable) {
+    }
     return TRUE;
   }
 
